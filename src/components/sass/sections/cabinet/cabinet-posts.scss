@@ -1,0 +1,129 @@
+.cabinet__posts {
+  margin: 0;
+  padding: 0;
+  padding-top: 45px;
+}
+
+.cabinet__posts-list {
+  margin: 0;
+  padding: 0;
+}
+
+.cabinet__posts-item {
+  @include inline-block(top);
+  width: 180px;
+  margin: 0;
+  margin-left: 60px;
+  margin-bottom: 35px;
+  padding: 0;
+  padding-bottom: 15px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+
+  &:nth-child(3n+1) {
+    margin-left: 55px;
+  }
+
+  &:hover .cabinet__posts-img-wrapper::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffe3e3;
+    opacity: 0.7;
+  }
+
+  &:hover .post-remove {
+    display: block;
+  }
+}
+.post-remove {
+  position: absolute;
+  display: none;
+  top: 10px;
+  right: 10px;
+  width: 27px;
+  height: 27px;
+  background: url('/images/cabinet/remove-post.png') no-repeat;
+  z-index: 10;
+  text-indent: -99999999px;
+}
+
+.cabinet__posts-link {
+  text-decoration: none;
+}
+
+.cabinet__posts-img-wrapper  {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #da234e;
+}
+
+.cabinet__posts-img {
+  display: block;
+  width: 130px;
+  margin: 0 auto;
+}
+
+.cabinet__posts-time {
+  width: 115px;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 13px;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 12px;
+  color: #7b7b7b;
+}
+
+.cabinet__posts-title {
+  width: 160px;
+  margin: 0;
+  margin-left: 13px;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 14px;
+  color: #000000;
+}
+
+.cabinet__posts-item-add {
+  text-align: center;
+
+  .cabinet__posts-img-wrapper {
+    height: 100px;
+    padding-top: 40px;
+    border-bottom: none;
+  }
+
+  .cabinet__posts-img {
+    display: inline-block;
+    width: auto;
+    vertical-align: bottom;
+  }
+
+  .cabinet__posts-title {
+    width: 100px;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #a4a3a2;
+  }
+
+  .cabinet__posts-time {
+    width: 125px;
+      margin: 0 auto;
+  }
+
+  &:hover .cabinet__posts-img-wrapper::after {
+    display: none;
+  }
+
+  &:hover .cabinet__posts-img-wrapper::before {
+    display: none;
+  }
+}

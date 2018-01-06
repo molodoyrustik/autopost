@@ -1,0 +1,42 @@
+$footer-height: 70px;
+$container-width: 1020px;
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  margin: 0 auto;
+  color: #000000;
+  font-size: 14px;
+  @include roboto(regular);
+}
+
+.wrapper {
+   min-height: calc(100vh - 70px);
+}
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+  padding: 0 10px;
+  @extend %clearfix;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: $footer-height;
+}

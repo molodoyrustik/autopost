@@ -1,0 +1,96 @@
+.login {
+  min-height: calc(100vh - 70px);
+  background-color: #ff6868;
+}
+
+.login__box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 372px;
+  margin: 0;
+  padding: 0;
+  padding-top: 55px;
+  padding-bottom: 25px;
+  padding-left: 100px;
+  padding-right: 100px;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 5px;
+
+  &:after {
+    position: absolute;
+    top: -105px;
+    left: 50%;
+    display: block;
+    content: '';
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, 0);
+    background: url('/images/login/home2.png') center no-repeat;
+  }
+}
+
+.login__logo-pos {
+  margin-bottom: 40px;
+}
+
+.login__logo-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.login__form {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.login__input {
+  display: block;
+  width: 305px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding: 18px 40px 18px 25px;
+  color: #888888;
+  font-size: 15px;
+  line-height: 15px;
+  @include roboto(regular);
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+
+  &:last-child {
+    margin-bottom: 35px;
+  }
+}
+
+
+.login__submit {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 15px 45px;
+  @include roboto(medium);
+  font-size: 16px;
+  line-height: 13px;
+  color: #ffffff;
+  background-color: #ff6868;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.login__forget-password {
+  display: block;
+  width: 130px;
+  font-size: 15px;
+  margin: 0 auto;
+  color: #626262;
+  text-decoration: none;
+  border-bottom: 1px solid #c4c4c4;
+}

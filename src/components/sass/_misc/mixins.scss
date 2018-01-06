@@ -1,0 +1,47 @@
+@mixin box-shadow($params){
+  box-shadow: $params;
+  -webkit-box-shadow : $params;
+  -moz-box-shadow: $params;
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin inline-block($valign: top) {
+  display: inline-block;
+  vertical-align: $valign;
+}
+
+@mixin roboto($typeArial: regular) {
+
+  @if $typeArial == thin {
+    font-family: 'Roboto Thin';
+  } @else if $typeArial == thin-italic {
+    font-family: 'Roboto Thin Italic';
+  } @else if $typeArial == light {
+    font-family: 'Roboto Light';
+  } @else if $typeArial == light-italic {
+    font-family: 'Roboto Light Italic';
+  } @else if $typeArial == regular {
+    font-family: 'Roboto Regular';
+  } @else if $typeArial == italic {
+    font-family: 'Roboto Italic';
+  } @else if $typeArial == medium {
+    font-family: 'Roboto Medium';
+  } @else if $typeArial == medium-italic {
+    font-family: 'Roboto Medium Italic';
+  } @else if $typeArial == bold {
+    font-family: 'Roboto Bold';
+  } @else if $typeArial == bold-italic {
+    font-family: 'Roboto Bold Italic';
+  } @else if $typeArial == black {
+    font-family: 'Roboto Black';
+  } @else if $typeArial == black-italic {
+    font-family: 'Roboto Black Italic';
+  }
+}

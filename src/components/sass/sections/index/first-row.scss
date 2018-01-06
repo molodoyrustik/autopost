@@ -1,0 +1,56 @@
+.first-row {
+  position: relative;
+  min-height: 488px;
+  margin: 0 auto;
+  background-color: #fff;
+  background-image: url('/images/first-row-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom: 4px solid #ff6868;
+}
+
+.first-row__title-wrapper {
+  margin: 0;
+  padding: 0;
+  padding-top: 95px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.first-row__title {
+  margin: 0;
+  padding: 0;
+  @include roboto(bold);
+  font-size: 25px;
+}
+
+.first-row__second-title {
+  margin: 0;
+  padding: 0;
+  @include roboto(bold);
+  font-size: 15px;
+}
+
+.start-button-pos {
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  bottom: -12px;
+}
+
+.button-start {
+  margin: 0;
+  padding: 12px 30px;
+  @include roboto(regular);
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #ff6868;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 25px;
+
+  &:hover {
+    background-color: #dd5a5a;
+  }
+}

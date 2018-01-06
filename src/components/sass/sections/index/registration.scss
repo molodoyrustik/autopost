@@ -1,0 +1,35 @@
+.registration {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  @extend %clearfix;
+}
+
+.registration__title {
+  display: inline-block;
+  vertical-align: middle;
+  width: 450px;
+  margin: 0;
+  margin-left: 70px;
+  padding: 0;
+  font-size: 24px;
+  line-height: 20px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+
+.registration-button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  margin-left: 125px;
+  padding: 10px 32px;
+  @include roboto(medium);
+  font-size: 14px;
+  line-height: 13px;
+  color: #626262;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid #ff6868;
+  border-radius: 20px;
+}

@@ -1,0 +1,121 @@
+.features {
+  background: url('/images/features-bg-pattern.jpg');
+}
+
+.features__title-wrapper {
+  padding-top: 80px;
+  padding-bottom: 65px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.features__title {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  @include roboto(bold);
+  font-size: 28px;
+  line-height: 30px;
+  color: #3b3b3b;
+  text-transform: uppercase;
+}
+
+.features__text {
+  display: inline-block;
+  width: 850px;
+  margin: 0 ;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 15px;
+  line-height: 32px;
+  color: #878787;
+  text-transform: uppercase;
+}
+
+
+.features__items-wrapper {
+  position: relative;
+  width: 1020px;
+  margin: 0 auto;
+  padding-top: 105px;
+}
+
+.features__items {
+  width: 460px;
+}
+
+.features__list {
+  margin: 0;
+  padding: 0;
+}
+
+.features__item {
+  padding-left: 135px;
+  margin-bottom: 65px;
+  cursor: pointer;
+  
+  &:nth-child(1) {
+    background: url('/images/features-edit.png') left center no-repeat;
+  }
+
+  &:nth-child(2) {
+    background: url('/images/features-settings.png') left center no-repeat;
+  }
+
+  &:nth-child(3) {
+    background: url('/images/feauters-safe.png') left center no-repeat;
+  }
+
+  &:last-child {
+    margin-bottom: 100px;
+  }
+
+  &:hover {
+    &:nth-child(1) {
+      background: url('/images/features-edit-hover.png') left center no-repeat;
+    }
+
+    &:nth-child(2) {
+      background: url('/images/features-settings-hover.png') left center no-repeat;
+    }
+
+    &:nth-child(3) {
+      background: url('/images/feauters-safe-hover.png') left center no-repeat;
+    }
+  }
+}
+
+.features__item-title {
+  width: 265px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  @include roboto(medium);
+  font-size: 18px;
+  line-height: 20px;
+  color: #353535;
+  text-transform: uppercase;
+}
+
+.features__item-desc {
+  width: 322px;
+  margin: 0;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 16px;
+  line-height: 22px;
+  color: #868d95;
+}
+
+.features__img-pos {
+  width: 700px;
+  position: absolute;
+  left: 570px;
+  bottom: -65px;
+  overflow: hidden;
+}
+
+.features__img {
+  margin: 0;
+  padding: 0;
+}

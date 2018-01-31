@@ -1,0 +1,27 @@
+.faq__header {
+  margin: 0;
+  padding: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.faq__title {
+  margin: 0;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 28px;
+  line-height: 28px;
+  color: 0d0a09;
+}
+
+.faq__title-text {
+  width: 665px;
+  margin: 0 auto;
+  padding: 0;
+  @include roboto(regular);
+  font-size: 15.5px;
+  line-height: 20px;
+  color: #7b7b7b;
+}

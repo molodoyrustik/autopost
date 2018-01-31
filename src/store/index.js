@@ -1,17 +1,12 @@
-import {createStore, applyMiddleware} from 'redux'
-import reducer from '../reducer'
-import logger from '../middlewares/logger'
-import randomId from '../middlewares/randomId'
-import api from '../middlewares/api'
-import thunk from 'redux-thunk'
-import { routerMiddleware } from 'react-router-redux'
-import history from '../history'
+import storeProd from './configureStore.prod';
+import storeDev from './configureStore.dev';
 
-const enhancer = applyMiddleware(thunk, routerMiddleware(history), randomId, api, logger)
+let store = {};
 
-const store = createStore(reducer, {}, enhancer)
+if (process.env.NODE_ENV === 'production') {
+  store = storeProd
+} else {
+  store = storeDev
+}
 
-//dev only
-window.store = store
-
-export default store
+export default store;

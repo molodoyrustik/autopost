@@ -1,29 +1,37 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const Header =  () => {
+import User from '../user';
+
+const Header = (props) => {
+  let tmpl = <div>
+    <nav className="header__navigation">
+      <ul className="header__list">
+        <li className="header__item">
+          <Link to='#' className="header__link">Возможности</Link>
+        </li>
+        <li className="header__item">
+          <Link to='#' className="header__link">План подписки</Link>
+        </li>
+      </ul>
+    </nav>
+
+    <Link to='/login' className="button-signin">Вход</Link></div>
+  if(props.auth) {
+    tmpl = <User />
+  }
   return (
     <header className='header '>
       <div className='container clearfix'>
         <div className='header__logo'>
-          <a href='#' className='header__logo-link'>
-            <img src="images/header-logo.png" alt="" className="header__logo-img"/>
-          </a>
+          <Link to='/' className='header__logo-link'>
+            <img src="/images/header-logo.png" alt="" className="header__logo-img"/>
+          </Link>
         </div>
 
         <div className="header__right">
-          <nav className="header__navigation">
-            <ul className="header__list">
-              <li className="header__item">
-                <a href="#" className="header__link">Возможности</a>
-              </li>
-              <li className="header__item">
-                <a href="#" className="header__link">План подписки</a>
-              </li>
-            </ul>
-          </nav>
-
-          <NavLink to='/login' className="button-signin">Вход</NavLink>
+         {tmpl}
         </div>
 
 
@@ -32,4 +40,8 @@ const Header =  () => {
   )
 }
 
-export default Header;
+export default connect((state) => {
+  return {
+    auth: state.auth.authenticated
+  }
+}, {})(Header);

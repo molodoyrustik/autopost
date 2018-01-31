@@ -19,6 +19,7 @@
   padding-bottom: 15px;
   border: 1px solid #e7e7e7;
   border-radius: 3px;
+  cursor: pointer;
 
   &:nth-child(3n+1) {
     margin-left: 55px;
@@ -53,6 +54,8 @@
 }
 
 .cabinet__posts-link {
+  display: block;
+  position: relative;
   text-decoration: none;
 }
 
@@ -62,12 +65,25 @@
   height: 180px;
   margin-bottom: 15px;
   border-bottom: 2px solid #da234e;
+  text-align: center;
+}
+
+.cabinet__posts-img-pos {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 130px;
+    padding: 0;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
 
 .cabinet__posts-img {
-  display: block;
-  width: 130px;
-  margin: 0 auto;
+  display: inline-block;
+  max-width: 130px;
+  margin: 0;
+  padding: 0;
 }
 
 .cabinet__posts-time {

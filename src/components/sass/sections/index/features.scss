@@ -1,5 +1,6 @@
 .features {
   background: url('/images/features-bg-pattern.jpg');
+  padding-bottom: 100px;
 }
 
 .features__title-wrapper {
@@ -53,7 +54,7 @@
   padding-left: 135px;
   margin-bottom: 65px;
   cursor: pointer;
-  
+
   &:nth-child(1) {
     background: url('/images/features-edit.png') left center no-repeat;
   }
@@ -67,7 +68,7 @@
   }
 
   &:last-child {
-    margin-bottom: 100px;
+    margin-bottom: 0;
   }
 
   &:hover {

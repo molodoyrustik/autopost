@@ -12,10 +12,11 @@ $dark-gray: #414141;
 @import "_misc/adjustment";
 
 /* common */
-@import "sections/header";
-@import "sections/navigation";
-@import "sections/accounts";
-@import "sections/footer";
+@import "common/header";
+@import "common/user";
+@import "common/navigation";
+@import "common/accounts";
+@import "common/footer";
 
 /* index */
 @import "sections/index/first-row";
@@ -30,5 +31,14 @@ $dark-gray: #414141;
 /* login */
 @import "sections/login/main";
 
-/* login */
+/* settings */
 @import "sections/settings/main";
+
+/* fqa */
+@import "sections/faq/main";
+
+/* plan */
+@import "sections/plan/main";
+
+/* add-modal */
+@import "sections/add-post/main";

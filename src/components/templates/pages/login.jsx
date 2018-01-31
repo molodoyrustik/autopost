@@ -1,6 +1,6 @@
 import React from 'react';
-
 import LoginLayout from '../layouts/login-layout.jsx';
+import LoginForm from '../sections/login/login-form.jsx';
 
 const Login = (props) => {
   return (
@@ -11,12 +11,7 @@ const Login = (props) => {
             <img src="/images/header-logo.png" alt="" className="login__logo-img"/>
           </div>
 
-          <form action="" className="login__form">
-            <input type="email" className="login__input" placeholder='Введите e-mail'/>
-            <input type="password" className="login__input" placeholder='Введите пароль'/>
-            <button className="login__submit">Вход</button>
-            <a href="/cabinet" className="login__forget-password">Забыли пароль</a>
-          </form>
+          <LoginForm />
         </div>
       </div>
     </LoginLayout>

@@ -11,7 +11,7 @@ const CabinetPosts = (props) => {
 
       <ul className="settings__list">
         <li className="settings__item">
-          <a href="#" className="settings__link">
+          <a href="" className="settings__link">
             <div className="settings__avatar-wrapper">
               <img src="images/cabinet/avatar.png" alt="" className="settings__avatar"/>
             </div>
@@ -20,11 +20,11 @@ const CabinetPosts = (props) => {
               <p className="settingss__email">@nameofaccount</p>
             </div>
           </a>
-          <a href="#" className="settings__remove-btn">Удалить профиль</a>
+          <a href="" className="settings__remove-btn">Удалить профиль</a>
         </li>
       </ul>
 
-      <a href="#" className="settings__invite-btn">Пригласить пользователя</a>
+      <a href="" className="settings__invite-btn">Пригласить пользователя</a>
     </div>
   )
 }

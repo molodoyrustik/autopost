@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default (props) => {
   return (
@@ -10,7 +11,7 @@ export default (props) => {
         </div>
 
         <div className="start-button-pos">
-          <a href="#" className="button-start">Начать бесплатно</a>
+          <Link to="/login" className="button-start">Начать бесплатно</Link>
         </div>
       </div>
     </div>

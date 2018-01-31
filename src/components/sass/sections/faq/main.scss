@@ -1,0 +1,13 @@
+.faq {
+  padding-top: 45px;
+}
+
+.faq__wrapper {
+  margin-bottom: 20px;
+  @extend %clearfix;
+  border: 1px solid #f7f7f7;
+}
+
+@import 'faq-header';
+@import 'faq-sidebar';
+@import 'faq-content';

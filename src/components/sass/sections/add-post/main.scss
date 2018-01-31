@@ -1,0 +1,140 @@
+.add-post__wrapper {
+  display: none;
+}
+
+.add-post__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 20;
+  background-color: #000000;
+  overflow: auto;
+  opacity: 0.7;
+}
+
+.add-post {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 750px;
+  height: 550px;
+  margin: 0;
+  padding: 30px 70px 40px 70px;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  z-index: 30;
+}
+
+.add-post__header {
+  margin-bottom: 45px;
+}
+
+.add-post__img {
+  display: block;
+  margin: 0 auto;
+}
+
+.add-post__process-bar {
+  margin: 0;
+  margin-bottom: 45px;
+  padding: 0;
+}
+
+.add-post__process-list {
+  margin: 0;
+  padding: 0;
+}
+
+.add-post__process-item {
+  position: relative;
+  width: 45px;
+  margin: 0;
+  margin-left: 140px;
+  padding: 0;
+  @include inline-block();
+  text-align: center;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 140px;
+    height: 1px;
+    top: 9px;
+    right: 45px;
+    background-color: #f5f5f5;
+  }
+
+  &:first-child:after {
+    display: none;
+  }
+}
+
+.add-post__process-circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+
+.add-post__process-circle--bg {
+  background-color: #ff6868;
+}
+
+.add-post__process-text {
+  display: block;
+  @include roboto(medium);
+  font-size: 14px;
+  color: #888888;
+  text-align: center;
+}
+
+.add-post__close {
+  position: absolute;
+  top: -40px;
+  right: -55px;
+  width: 33px;
+  height: 33px;
+  background: url('/images/add/add-close.png') no-repeat;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.ready-btn {
+  margin: 0;
+  margin-top: 10px;
+  padding: 8px 40px;
+  @include roboto(regular);
+  font-size: 15px;
+  color: white;
+  background-color: #ff6868;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+}
+
+@import "step-upload";
+@import "step-edit";
+@import "step-caption";

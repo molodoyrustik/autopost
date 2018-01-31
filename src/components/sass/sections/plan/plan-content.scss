@@ -1,0 +1,69 @@
+@import 'plan-navigation';
+
+.plan__content {
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.step {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.step__title-wrapper {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.step__title {
+  margin: 0;
+  padding: 0;
+  @include roboto(medium);
+  font-size: 19px;
+  line-height: 24px;
+
+  span {
+    color: #ff6868;
+  }
+}
+
+.step__text {
+  width: 615px;
+  @include roboto(regular);
+  font-size: 15px;
+  line-height: 17px;
+  color: #626262;
+}
+
+.step__create-plan {
+  margin: 0;
+  padding: 0;
+}
+
+.choose-time {
+  width: 400px;
+  margin-bottom: 25px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.timepicker__title {
+  @include roboto(medium);
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.data-picker {
+  margin: 0;
+}
+
+
+.step .cabinet__posts-item {
+  margin: 0;
+}

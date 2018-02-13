@@ -1,38 +1,27 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
-import MainLayout from '../layouts/main-layout.jsx';
-import Navigation from '../common/navigation';
-import Accounts from '../common/accounts';
 import PlanNavigation from '../sections/plan/plan-navigation';
-import PlanContent from '../sections/plan/plan-content';
-import Calendar from '../sections/plan/plan-calendar';
 
-const Plan = ({ match }) => {
-  let tmpl = <Route component={PlanContent} />
-  if(match.params.section === 'create-time') {
-    tmpl = <Route component={PlanContent} />
-  } else {
-    tmpl = <Route component={Calendar} />
+class Plan extends Component {
+
+  componentWillMount() {
+    if(this.props.match.path === '/private/plan') {
+      this.props.push('/private/plan/create-post')
+    }
   }
-  return (
-    <MainLayout>
+
+  render() {
+    return (
       <div className="plan">
-        <div className="container">
-          <div className="plan__left">
-            <Navigation/>
-            <PlanNavigation />
-
-            {tmpl}
-          </div>
-
-          <div className="plan__right">
-            <Accounts />
-          </div>
-        </div>
+        <PlanNavigation/>
+        {renderRoutes(this.props.route.routes)}
       </div>
-    </MainLayout>
-  )
+    )
+  }
 }
 
-export default Plan;
+export default connect(null, { push })(Plan);

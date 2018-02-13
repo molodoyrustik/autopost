@@ -1,4 +1,4 @@
-import { SUBMIT_LOGIN_DATA, TEST_TOKEN, LOGOUT, SUCCESS } from '../actions/constants';
+import { SUBMIT_LOGIN_DATA, SUBMIT_SIGNUP_DATA, TEST_TOKEN, LOGOUT, SUCCESS } from '../actions/constants';
 
 const defautState = {
   authenticated: false,
@@ -10,6 +10,8 @@ export default (authState = defautState, action) => {
 
   switch (type) {
     case SUBMIT_LOGIN_DATA + SUCCESS:
+      return { ...authState, token, authenticated };
+    case SUBMIT_SIGNUP_DATA + SUCCESS:
       return { ...authState, token, authenticated };
     case TEST_TOKEN + SUCCESS:
       return { ...authState, authenticated: success, token: action.payload.token };

@@ -56,15 +56,15 @@
   cursor: pointer;
 
   &:nth-child(1) {
-    background: url('/images/features-edit.png') left center no-repeat;
+    background: url('/images/features-edit.png') 2px center no-repeat;
   }
 
   &:nth-child(2) {
-    background: url('/images/features-settings.png') left center no-repeat;
+    background: url('/images/features-settings.png') 2px center no-repeat;
   }
 
   &:nth-child(3) {
-    background: url('/images/feauters-safe.png') left center no-repeat;
+    background: url('/images/feauters-safe.png') 2px center no-repeat;
   }
 
   &:last-child {

@@ -7,8 +7,7 @@ import { login } from '../../../../actions'
 class LoginForm extends Component {
   state = {
     email: '',
-    password: '',
-    type: 'signin'
+    password: ''
   };
 
   render() {
@@ -30,16 +29,9 @@ class LoginForm extends Component {
         />
         <button type='submit' className="login__submit">Вход</button>
         <Link to="/cabinet" className="login__forget-password">Забыли пароль</Link>
-        <a onClick={this.handleClick} className="login__forget-password">{ this.state.type === 'signin' ? 'Sign up' : 'Sign in'}</a>
+        <Link to='/signup' className="login__forget-password">Sign up</Link>
       </form>
     )
-  };
-
-  handleClick = ev => {
-    ev.preventDefault();
-    this.setState({
-      type: this.state.type === 'signin' ? 'signup' : 'signin'
-    })
   }
 
   handleSubmit = ev => {

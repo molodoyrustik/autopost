@@ -25,6 +25,9 @@ $dark-gray: #414141;
 @import "sections/index/registration";
 /* index-end */
 
+/* private */
+@import "sections/private/main";
+
 /* cabinet */
 @import "sections/cabinet/main";
 

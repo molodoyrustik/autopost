@@ -1,0 +1,22 @@
+.private {
+  margin: 0;
+  margin-bottom: 45px;
+  padding: 0;
+  padding-top: 30px;
+  @extend %clearfix;
+}
+.private__left {
+  float: left;
+  width: 788px;
+  background-color: #fefefe;
+  border-left: 1px solid #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
+  border-right: 1px solid #f7f7f7;
+}
+
+
+
+.private__right {
+  float: right;
+  width: 230px;
+}

@@ -12,7 +12,7 @@ class CabinetPosts extends Component {
     isOpen: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getPosts();
   };
 
@@ -27,7 +27,7 @@ class CabinetPosts extends Component {
         <ul className="cabinet__posts-list">
           <li onClick={this.toggleModal} className="cabinet__posts-item cabinet__posts-item-add">
             <div className="cabinet__posts-img-wrapper">
-              <img src="images/cabinet/add-post.png" alt="" className="cabinet__posts-img"/>
+              <img src="/images/cabinet/add-post.png" alt="" className="cabinet__posts-img"/>
             </div>
             <h4 className="cabinet__posts-title">Add new post</h4>
             <p className="cabinet__posts-time">Looks like we have sent all of your updates</p>
@@ -51,7 +51,6 @@ class CabinetPosts extends Component {
 
   handleDelete = id => e => {
     e.preventDefault();
-
     this.props.deletePost(id);
   }
 }

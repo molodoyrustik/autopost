@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 import AccountsItem from './accountsItem';
+import EditModal from './edit-modal';
 import { getAccounts, setAccount } from '../../../../actions'
 import { Button, Dialog, FormGroup } from "@blueprintjs/core"
 
@@ -13,7 +14,7 @@ class Accounts extends Component {
     typeID: 'Inst'
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAccounts();
   };
 
@@ -36,58 +37,18 @@ class Accounts extends Component {
           </ul>
         </aside>
 
-        <div className="accounts__modal">
-          <Dialog
-            iconName="inbox"
-            isOpen={this.state.isOpen}
-            onClose={this.toggleDialog}
-            title="Добавить аккаунт">
-            <div className="pt-dialog-body">
-              <form className='accounts__modal-form'>
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Тип аккаунта"
-                  labelFor="text-input"
-                  required={true}
-                  disabled={true}>
-                  <input id="text-input"
-                    disabled={true}
-                    placeholder="instagram"/>
-                </FormGroup>
-
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Логин аккаунта"
-                  labelFor="text-input"
-                  required={true}>
-                  <input id="text-input"
-                    placeholder="login"
-                    value={this.state.login}
-                    onChange={this.handleChange('login')}/>
-                </FormGroup>
-
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Пароль аккаунта"
-                  labelFor="text-input"
-                  required={true}>
-                  <input id="text-input"
-                    placeholder="password"
-                    value={this.state.password}
-                    onChange={this.handleChange('password')}/>
-                </FormGroup>
-              </form>
-            </div>
-
-            <div className="pt-dialog-footer">
-                <Button
-                  onClick={this.handleSubmit}
-                  text="Добавить"
-                  className='pt-intent-primary pt-large'
-                />
-            </div>
-          </Dialog>
-        </div>
+        <EditModal
+          isOpen={this.state.isOpen}
+          login={this.state.login}
+          password={this.state.password}
+          titleModal="Добавить аккаунт"
+          handleChange={this.handleChange}
+          toggleDialog={this.toggleDialog}
+          handleDelete={this.handleDelete}
+          handleSubmit={this.handleSubmit}
+          submitButton={{text: 'Добавить'}}
+          deleteButton={{text: '', hide:false }}
+        />
       </div>
     )
   }
@@ -122,11 +83,6 @@ class Accounts extends Component {
         })
   };
 
-  // handleEdit = e => {
-  //   if(e.target.closest('li[class="accounts__item"')) {
-  //     console.log("CLICK");
-  //   }
-  // }
 }
 
 const limits = {

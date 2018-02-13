@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { push } from 'react-router-redux';
+import Cookies from 'js-cookie';
 import { SUBMIT_LOGIN_DATA,
+  SUBMIT_SIGNUP_DATA,
   TEST_TOKEN,
   LOGOUT,
   GET_ACCOUNTS,
@@ -11,17 +13,11 @@ import { SUBMIT_LOGIN_DATA,
   SET_POST,
   DELETE_POST,
   START, SUCCESS, FAIL } from './constants';
-import Cookies from 'js-cookie';
+
+let mainApi = 'http://46.101.222.238:80/'
 
 export function login(data, type) {
   let apiUrl = 'auth/login'
-
-
-  if(type === 'signin') {
-    apiUrl = 'auth/login'
-  } else {
-    apiUrl = 'auth/signup'
-  }
 
   return (dispatch) => {
     dispatch({
@@ -30,8 +26,8 @@ export function login(data, type) {
         data
       }
     });
-
-    return (axios.post(`http://api.geekquote.org/${apiUrl}`, data)
+  console.log(`${mainApi}${apiUrl}`)
+    return (axios.post(`${mainApi}${apiUrl}`, data)
 
         .then((response) => {
           let token = ''
@@ -51,7 +47,7 @@ export function login(data, type) {
             user
           });
 
-          return dispatch(push('/cabinet'))
+          return dispatch(push('/private/cabinet'))
         })
         .catch(error => {
           dispatch({
@@ -76,6 +72,49 @@ export function logout() {
   };
 }
 
+export function signup(data, type) {
+  let apiUrl = 'auth/signup';
+
+  return (dispatch) => {
+    dispatch({
+      type: SUBMIT_SIGNUP_DATA + START,
+      payload: {
+        data
+      }
+    });
+
+    return (axios.post(`${mainApi}${apiUrl}`, data)
+
+        .then((response) => {
+          let token = ''
+          let authenticated = false;
+          let user = {};
+          if(response.data.authenticated) {
+            token = response.data.success.access_token;
+            authenticated = response.data.authenticated;
+            Cookies.set('token', `${token}`);
+            user = response.data.user;
+          }
+          dispatch({
+            type: SUBMIT_SIGNUP_DATA + SUCCESS,
+            payload: { data },
+            token,
+            authenticated,
+            user
+          });
+
+          return dispatch(push('/private/cabinet'))
+        })
+        .catch(error => {
+          dispatch({
+            type: SUBMIT_SIGNUP_DATA + FAIL,
+            payload: { data, error }
+          });
+        })
+    );
+  };
+}
+
 export function testToken(cookieToken) {
   return (dispatch, getState) => {
     const token = cookieToken || '';
@@ -88,7 +127,7 @@ export function testToken(cookieToken) {
     });
 
     return (
-      axios.post('http://api.geekquote.org/auth/token', { access_token: token  })
+      axios.post(`${mainApi}auth/token`, { access_token: token  })
         .then((response) => {
           let user = {};
           let success = false;
@@ -103,7 +142,7 @@ export function testToken(cookieToken) {
             user
           });
 
-          dispatch(push('/cabinet'));
+          dispatch(push('/private'));
         })
         .catch(error => {
           dispatch({
@@ -124,9 +163,10 @@ export function getAccounts() {
       payload: {}
     });
 
+    console.log(`Bearer ${getState().auth.token}`);
     return (
 
-      axios.get('http://api.geekquote.org/account',{
+      axios.get(`${mainApi}account`,{
         headers: {
           'Authorization': `Bearer ${getState().auth.token}`
         }
@@ -165,7 +205,7 @@ export function setAccount(data) {
       headers: {'Authorization': `Bearer ${getState().auth.token}`},
     }
 
-    return (axios.post(`http://api.geekquote.org/account`, data, config)
+    return (axios.post(`${mainApi}account`, data, config)
         .then((response) => {
           dispatch({
             type: SET_ACCOUNT + SUCCESS,
@@ -198,7 +238,7 @@ export function editAccount(data, id) {
       headers: {'Authorization': `Bearer ${getState().auth.token}`},
     }
 
-    return (axios.put(`http://api.geekquote.org/account/${id}`, data, config)
+    return (axios.put(`${mainApi}account/${id}`, data, config)
         .then((response) => {
           dispatch({
             type: EDIT_ACCOUNT + SUCCESS,
@@ -230,7 +270,7 @@ export function deleteAccount(data = {}, id) {
     }
 
 
-    return (axios.delete(`http://api.geekquote.org/account/${id}`, config)
+    return (axios.delete(`${mainApi}account/${id}`, config)
         .then((response) => {
           dispatch({
             type: DELETE_ACCOUNT + SUCCESS,
@@ -259,7 +299,7 @@ export function getPosts() {
     });
     return (
 
-      axios.get('http://api.geekquote.org/posts',{
+      axios.get(`${mainApi}posts`,{
         headers: {
           'Authorization': `Bearer ${getState().auth.token}`
         }
@@ -297,7 +337,7 @@ export function setPost(data) {
       headers: {'Authorization': `Bearer ${getState().auth.token}`},
     }
 
-    return (axios.post(`http://api.geekquote.org/posts`, data, config)
+    return (axios.post(`${mainApi}posts`, data, config)
         .then((response) => {
           dispatch({
             type: SET_POST + SUCCESS,
@@ -329,7 +369,7 @@ export function deletePost(id) {
     }
 
 
-    return (axios.delete(`http://api.geekquote.org/posts/${id}`, config)
+    return (axios.delete(`${mainApi}posts/${id}`, config)
         .then((response) => {
           dispatch({
             type: DELETE_POST + SUCCESS,

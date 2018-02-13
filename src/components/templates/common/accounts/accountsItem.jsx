@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Dialog, FormGroup } from "@blueprintjs/core"
 import { connect } from 'react-redux';
+
+import EditModal from './edit-modal';
 
 import { editAccount, deleteAccount } from '../../../../actions'
 
@@ -23,7 +24,7 @@ class accountsItem extends Component {
   render() {
     const { login } = this.props;
     return (
-      <li onClick={this.handleEditClick} className="accounts__item">
+      <li onClick={this.toggleDialog} className="accounts__item">
         <a className="accounts__link">
           <div className="accounts__avatar-wrapper">
             <img src="/images/cabinet/avatar.png" alt="" className="accounts__avatar"/>
@@ -34,69 +35,24 @@ class accountsItem extends Component {
           </div>
         </a>
 
-        <div className="accounts__modal">
-          <Dialog
-            iconName="inbox"
-            isOpen={this.state.isOpen}
-            onClose={this.handleEditClick}
-            title="Изменить аккау">
-            <div className="pt-dialog-body">
-              <form className='accounts__modal-form'>
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Тип аккаунта"
-                  labelFor="text-input"
-                  required={true}
-                  disabled={true}>
-                  <input id="text-input"
-                    disabled={true}
-                    placeholder="instagram"/>
-                </FormGroup>
-
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Логин аккаунта"
-                  labelFor="text-input"
-                  required={true}>
-                  <input id="text-input"
-                    placeholder="login"
-                    value={this.state.login}
-                    onChange={this.handleChange('login')}/>
-                </FormGroup>
-
-                <FormGroup
-                  helperText="(ВК, Inst, FB и пр.)"
-                  label="Пароль аккаунта"
-                  labelFor="text-input"
-                  required={true}>
-                  <input id="text-input"
-                    placeholder="password"
-                    value={this.state.password}
-                    onChange={this.handleChange('password')}/>
-                </FormGroup>
-              </form>
-            </div>
-
-            <div className="pt-dialog-footer">
-                <Button
-                  onClick={this.handleSubmit}
-                  text="Изменить"
-                  className='pt-intent-primary pt-large'
-                />
-                <Button
-                  onClick={this.handleDelete}
-                  text="Удалить аккаунт"
-                  className='pt-intent-danger pt-large'
-                />
-            </div>
-          </Dialog>
-        </div>
+        <EditModal
+          isOpen={this.state.isOpen}
+          login={this.state.login}
+          password={this.state.password}
+          titleModal="Изменить аккаунт"
+          handleChange={this.handleChange}
+          toggleDialog={this.toggleDialog}
+          handleDelete={this.handleDelete}
+          handleSubmit={this.handleSubmit}
+          submitButton={{text: 'Изменить'}}
+          deleteButton={{text: 'Удалить аккаунт', hide: true}}
+        />
       </li>
     )
   }
 
-  handleEditClick = (e) => {
-   console.log("CLICK", this.props.id);
+  toggleDialog = (e) => {
+    console.log('yes');
    e.preventDefault();
    this.setState({ isOpen: !this.state.isOpen })
   }

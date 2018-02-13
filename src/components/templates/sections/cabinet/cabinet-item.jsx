@@ -6,7 +6,7 @@ const CabinetItem = (props) => {
     <li className="cabinet__posts-item">
       <a className="cabinet__posts-link">
         <div className="cabinet__posts-img-wrapper">
-          <a onClick={handleDelete(id)} className='post-remove'>delete</a>
+          <i onClick={handleDelete(id)} className='post-remove'>delete</i>
           <div className="cabinet__posts-img-pos">
             <img src={`http://api.geekquote.org${image}`} alt="" className="cabinet__posts-img"/>
           </div>

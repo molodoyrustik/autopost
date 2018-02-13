@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Footer from '../common/footer';
 
 const LoginLayout = (props) => {
@@ -13,4 +12,4 @@ const LoginLayout = (props) => {
   )
 }
 
-export default LoginLayout;
+export default (LoginLayout);

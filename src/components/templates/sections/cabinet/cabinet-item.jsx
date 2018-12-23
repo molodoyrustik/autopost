@@ -2,13 +2,14 @@ import React from 'react';
 
 const CabinetItem = (props) => {
   const { image, text, date, id, handleDelete } = props;
+  let mainApi = 'http://46.101.222.238:80/'
   return (
     <li className="cabinet__posts-item">
       <a className="cabinet__posts-link">
         <div className="cabinet__posts-img-wrapper">
           <i onClick={handleDelete(id)} className='post-remove'>delete</i>
           <div className="cabinet__posts-img-pos">
-            <img src={`http://api.geekquote.org${image}`} alt="" className="cabinet__posts-img"/>
+            <img src={`${mainApi}${image}`} alt="" className="cabinet__posts-img"/>
           </div>
         </div>
         <p className="cabinet__posts-time">{date}</p>

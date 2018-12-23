@@ -11,7 +11,7 @@ const Footer =  () => {
           </Link>
         </div>
         <div className='footer__text'>
-          <p>© 2014-2015 Onlypult. All rights reserved</p>
+          <p>© 2014-2018 Autoposting. All rights reserved</p>
         </div>
       </div>
     </footer>

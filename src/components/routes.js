@@ -24,9 +24,10 @@ const Routes = [
 
     {
       path: '/private',
-      component: AuthHoc(Private),
+      component: (Private),
       routes: [
-        { path: '/private/cabinet',
+        { 
+          path: '/private/cabinet',
           component: Cabinet
         },
         {

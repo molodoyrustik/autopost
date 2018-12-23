@@ -8,7 +8,7 @@ class StepUpload extends Component {
 
   render() {
     const { upload } = this.props;
-    const { image, link } = this.state;
+    const { link } = this.state;
     return(
       <div className={`step step-upload ${ upload ? 'show': 'hide'}`}>
         <form className="step-upload__form" onSubmit={this.handleSubmit}>
@@ -43,18 +43,24 @@ class StepUpload extends Component {
       reader.addEventListener('load', () => {
         var base64 = reader.result;
         this.setState({ image: base64 })
+        this.handleSubmit(e);
       }, false);
+
+
+
     } else if(type === 'link') {
-      this.setState({ link: e.target.value })
+      this.setState({ link: e.target.value });
+
     }
   }
 
   handleChangeLinkImage = e => {
-    this.setState({ image: this.state.link })
+    this.setState({ image: this.state.link }, () => {
+      this.handleSubmit(e);
+    })
   }
 
   handleSubmit = e => {
-    e.preventDefault();
     const { handleNext } = this.props;
     const options = { image: this.state.image };
     handleNext('upload', options);

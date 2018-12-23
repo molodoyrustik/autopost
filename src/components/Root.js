@@ -1,19 +1,20 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-
-
 import App from './App'
+import store from '../store'
+import { Provider } from 'react-redux'
+import Cookies from 'js-cookie';
 
-const Root = (props) => {
+import { testToken } from '../actions';
+
+const cookieToken = Cookies.get('token');
+// store.dispatch(testToken(cookieToken))
+
+const Root = () => {
   return (
-    <Provider store = {props.store}>
+    <Provider store = {store}>
         <App />
     </Provider>
   )
 }
 
-export default (store) => {
-  return (
-    <Root store={store}/>
-  )
-}
+export default Root;

@@ -26,7 +26,7 @@ export function login(data, type) {
         data
       }
     });
-  console.log(`${mainApi}${apiUrl}`)
+
     return (axios.post(`${mainApi}${apiUrl}`, data)
 
         .then((response) => {
@@ -163,7 +163,6 @@ export function getAccounts() {
       payload: {}
     });
 
-    console.log(`Bearer ${getState().auth.token}`);
     return (
 
       axios.get(`${mainApi}account`,{
@@ -182,7 +181,7 @@ export function getAccounts() {
         })
         .catch(error => {
           dispatch({
-            type: TEST_TOKEN + FAIL,
+            type: GET_ACCOUNTS + FAIL,
             payload: { },
             error
           });

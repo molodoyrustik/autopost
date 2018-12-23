@@ -27,7 +27,7 @@ class accountsItem extends Component {
       <li onClick={this.toggleDialog} className="accounts__item">
         <a className="accounts__link">
           <div className="accounts__avatar-wrapper">
-            <img src="/images/cabinet/avatar.png" alt="" className="accounts__avatar"/>
+            <img src={`https://picsum.photos/300/300/?image=${Math.round(Math.random() * 100)}`} alt="" className="accounts__avatar"/>
           </div>
           <div className="accounts__data">
             <h3 className="accounts__title">Groupname</h3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog, FormGroup } from "@blueprintjs/core"
+import { Dialog, Button, FormGroup } from "@blueprintjs/core"
 
 const EditModal =  (props) => {
   return (

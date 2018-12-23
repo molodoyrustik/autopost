@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';

@@ -7,16 +7,17 @@ import { logout } from '../../../../actions'
 const User = (props) => {
   const email = props.email;
   const logout = props.logout;
+  const date = props.date ? 'Оплачено до 25.03.2015' : '';
   return (
     <div className="user">
 
       <Link to='#' className="user__wrapper">
           <div className="user__data">
             <h3 className="user__title">{email}</h3>
-            <p className="user__price-data">Оплачено до 25.03.2015</p>
+            <p className="user__price-data">{date}</p>
           </div>
           <div className="user__avatar-wrapper">
-            <img src="/images/cabinet/avatar.png" alt="" className="user__avatar"/>
+            <img src="https://picsum.photos/300/300/?random" alt="" className="user__avatar"/>
           </div>
       </Link>
 

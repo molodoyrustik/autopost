@@ -79,6 +79,6 @@ const limits = {
 
 export default connect((state) => {
   return {
-
+    authenticated: state.auth.authenticated
   }
 }, { login })(LoginForm);

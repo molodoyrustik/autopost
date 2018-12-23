@@ -8,7 +8,7 @@ class StepCaption extends Component {
   }
 
   render() {
-    const { caption, handleNext, image } = this.props;
+    const { caption, image } = this.props;
     return(
       <div className={`step step-caption ${ caption ? 'show': 'hide'}`}>
         <form className="step-caption__form" onSubmit={this.handleSubmit}>
@@ -61,7 +61,7 @@ class StepCaption extends Component {
     };
 
     handleNext('caption', options);
-    
+
     this.setState({ text: '', date:'' })
   }
 }
